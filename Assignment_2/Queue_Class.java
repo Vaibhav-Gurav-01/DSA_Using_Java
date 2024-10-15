@@ -1,3 +1,10 @@
+/*in this there exists 2 queues in single array
+one act from start to end
+other end to start
+user will be given option enqueue from 1,enqueue from 2,dequeue from 1,dequeue from 2nd,print queue 1,print queue2
+start from mid to create queues*/
+
+
 package Assignment_2;
 
 public class Queue_Class {
