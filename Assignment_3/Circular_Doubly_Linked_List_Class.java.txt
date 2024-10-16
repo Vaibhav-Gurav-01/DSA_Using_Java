@@ -1,0 +1,86 @@
+
+public class Circular_Doubly_Linked_List_Class {
+    private Node root; // reference to the first node
+    private Node last; // reference to the last node
+
+    public Circular_Doubly_Linked_List_Class() {
+        root = null;
+        last = null;
+    }
+
+    // Insert a new node at the end (rightmost) of the list
+    public void insertAtEnd(int data) {
+        Node newNode = new Node(data);
+        if (root == null) {
+            root = newNode;
+            last = newNode;
+            newNode.right = root;
+            newNode.left = root;
+        } else {
+            last.right = newNode;
+            newNode.left = last;
+            newNode.right = root;
+            root.left = newNode;
+            last = newNode;
+        }
+    }
+
+    // Remove the leftmost node from the list
+    public void removeFromStart() {
+        if (root == null) {
+            System.out.println("List is empty.");
+            return;
+        }
+        if (root == last) {
+            root = null;
+            last = null;
+        } else {
+            root = root.right;
+            last.right = root; // Update last's right to new root
+            root.left = last; // Update new root's left to last
+        }
+    }
+
+    // Remove the rightmost node from the list
+    public void removeFromEnd() {
+        if (last == null) {
+            System.out.println("List is empty.");
+            return;
+        }
+        if (root == last) {
+            root = null;
+            last = null;
+        } else {
+            last = last.left;
+            last.right = root; // Update last's right to root
+            root.left = last; // Update root's left to new last
+        }
+    }
+
+    // Traverse the list from root to last
+    public void traverseForward() {
+        if (root == null) {
+            System.out.println("List is empty.");
+            return;
+        }
+        Node current = root;
+        do {
+            System.out.print(current.data + " ");
+            current = current.right;
+        } while (current != root);
+        System.out.println();
+    }
+
+    // Traverse the list from last to root
+    public void traverseBackward() {
+        if (last == null) {
+            System.out.println("List is empty.");
+            return;
+        }
+        Node current = last;
+        do {
+            System.out.print(current.data + " ");
+            current = current.left;
+        } while (current != last);
+        System.out.println();
+    }
