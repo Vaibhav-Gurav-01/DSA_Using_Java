@@ -1,11 +1,11 @@
-class CDNode {
+class Node {
     int data;
-    Node next;
-    Node prev;
+    Node right; // points to the next node
+    Node left;  // points to the previous node
 
-    CDNode(int data) {
+    Node(int data) {
         this.data = data;
-        this.next = null;
-        this.prev = null;
+        this.right = null;
+        this.left = null;
     }
 }
