@@ -8,3 +8,50 @@ Remove the leftmost node from the list.
 Remove the rightmost node from the list.
 Traverse the list from the head to the tail and print the value of each node.
 Traverse the list from the tail to the head and print the value of each node.*/
+
+
+import java.util.Scanner;
+public class Circular_Doubly_Linked_List_Main{
+ public static void main(String[] args) {
+        Circular_Doubly_Linked_List_Class list = new Circular_Doubly_Linked_List_Class();
+        Scanner in = new Scanner(System.in);
+        int choice, element;
+
+        do {
+            System.out.println("\n1. Insert Right\n2. Remove Left\n3. Remove Right\n4. Print\n5. Print Reverse\n0. Exit");
+            choice = in.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter element:");
+                    element = in.nextInt();
+                    list.insertRight(element);
+                    System.out.println("Element Inserted.");
+                    break;
+                case 2:
+                    list.removeLeft();
+                    break;
+                case 3:
+                    list.removeRight();
+                    break;
+                case 4:
+                    System.out.println("List:");
+                    list.printList();
+                    break;
+                case 5:
+                    System.out.println("List in Reverse:");
+                    list.printReverse();
+                    break;
+                case 0:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Wrong option selected.");
+                    break;
+            }
+        } while (choice != 0);
+
+        in.close();
+    }
+  }
+}
