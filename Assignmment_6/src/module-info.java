@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-module Assignmment_6 {
-}
